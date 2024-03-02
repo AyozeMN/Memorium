@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.CreateQuizActivity">
+
+    <LinearLayout
+        android:id="@+id/llCreateQuiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/llTitleCreateQuiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitleCreateQuiz"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rounded"
+                android:layout_marginBottom="32dp"
+                android:gravity="center"
+                android:paddingLeft="64dp"
+                android:paddingRight="64dp"
+                android:text="Formulario crear test"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/etStatementCQ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="Introduzca el enunciado de la nueva pregunta"
+                android:background="@drawable/bg_et_form"
+                android:ems="10"
+                android:hint="@string/statement"
+                android:inputType="text"
+                android:minHeight="48dp"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/etDifficultyCQ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:autofillHints="Introduzca la dificultad del Quiz"
+                android:background="@drawable/bg_et_form"
+                android:ems="10"
+                android:hint="Dificultad {Fácil, Medio, Difícil}"
+                android:inputType="text"
+                android:minHeight="48dp"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llQuestionList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvQuestionList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llBtnCQ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnCQ"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:maxWidth="320dp"
+            android:text="@string/create"
+            android:textColor="@android:color/white"
+            tools:ignore="TextContrastCheck" />
+
+        <Space
+            android:layout_width="8dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnUQ"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:maxWidth="320dp"
+            android:text="@string/actualizar"
+            android:textColor="@android:color/white"
+            tools:ignore="TextContrastCheck" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

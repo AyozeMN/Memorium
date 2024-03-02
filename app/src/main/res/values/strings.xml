@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Memorium</string>
+    <string name="prefs_file">com.ayoze.memorium.PREFERENCE_FILE_KEY</string>
+    <string name="email">Email</string>
+    <string name="acceder">Acceder</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="registrar">Registrar</string>
+    <string name="provider">Provider</string>
+    <string name="logOut">Cerrar sesión</string>
+    <string name="memorium_logo">Memorium logo</string>
+    <string name="colaborador">Colaborador</string>
+    <string name="paciente">Paciente</string>
+    <string name="rol">Rol</string>
+    <string name="imagen_de_perfil">Imagen de Perfil</string>
+    <string name="statement">Enunciado</string>
+    <string name="first_option">Primera Opción</string>
+    <string name="second_option">Segunda Opción</string>
+    <string name="third_option">Tercera Opción</string>
+    <string name="fourth_option">Cuarta Opción</string>
+    <string name="isCorrectOption">¿Es opción correcta?</string>
+    <string name="create">Crear</string>
+    <string name="create_question">Crear Pregunta</string>
+    <string name="formulario_crear_pregunta">Formulario crear pregunta</string>
+    <string name="ver_pacientes">Ver Pacientes</string>
+    <string name="ver_preguntas">Ver Preguntas</string>
+    <string name="borrar_pregunta">Borrar Pregunta</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="quiz_de_respuesta_multiple">Quiz de Respuesta Múltiple</string>
+    <string name="numero_de_preguntas">Número de Preguntas</string>
+    <string name="cerrar_pantalla">Cerrar Pantalla</string>
+    <string name="siguiente_pregunta">Siguiente pregunta</string>
+    <string name="terminar">Terminar</string>
+    <string name="resultado_del_test">Resultado del Test</string>
+    <string name="preguntas_correctas">Preguntas Correctas</string>
+    <string name="preguntas_erroneas">Preguntas Erróneas</string>
+    <string name="dificultad">Dificultad</string>
+    <string name="imagen_del_quiz">Imagen del Quiz</string>
+    <string name="realizar_test">Realizar Test</string>
+    <string name="ver_tus_resultados">Ver tus resultados</string>
+    <string name="crear_quiz">Crear Quiz</string>
+    <string name="ver_tests">Ver Tests</string>
+    <string name="preguntas_del_test">Preguntas del test</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="difficulty">Dificultad</string>
+</resources>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clCreateQuestion"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/llCreateQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:id="@+id/llTitleCQ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTitleCQ"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rounded"
+                android:gravity="center"
+                android:paddingLeft="64dp"
+                android:paddingRight="64dp"
+                android:text="@string/formulario_crear_pregunta"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etStatementCQ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:autofillHints="Introduzca el enunciado de la nueva pregunta"
+            android:background="@drawable/bg_et_form"
+            android:ems="10"
+            android:hint="@string/statement"
+            android:inputType="text"
+            android:minHeight="48dp"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        <EditText
+            android:id="@+id/etOption1CQ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:autofillHints="Introduzca el enunciado de la primera opción"
+            android:background="@drawable/bg_et_form"
+            android:ems="10"
+            android:hint="@string/first_option"
+            android:inputType="text"
+            android:minHeight="48dp"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        <CheckBox
+            android:id="@+id/cbOption1CQ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="32dp"
+            android:text="@string/isCorrectOption"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck,VisualLintButtonSize" />
+
+        <EditText
+            android:id="@+id/etOption2CQ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:autofillHints="Introduzca el enunciado de la segunda opción"
+            android:background="@drawable/bg_et_form"
+            android:ems="10"
+            android:hint="@string/second_option"
+            android:inputType="text"
+            android:minHeight="48dp"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        <CheckBox
+            android:id="@+id/cbOption2CQ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="32dp"
+            android:text="@string/isCorrectOption"
+            tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
+
+        <EditText
+            android:id="@+id/etOption3CQ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:autofillHints="Introduzca el enunciado de la tercera opción"
+            android:background="@drawable/bg_et_form"
+            android:ems="10"
+            android:hint="@string/third_option"
+            android:inputType="text"
+            android:minHeight="48dp"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        <CheckBox
+            android:id="@+id/cbOption3CQ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="32dp"
+            android:text="@string/isCorrectOption"
+            tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
+
+        <EditText
+            android:id="@+id/etOption4CQ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:autofillHints="Introduzca el enunciado de la cuarta opción"
+            android:background="@drawable/bg_et_form"
+            android:ems="10"
+            android:hint="@string/fourth_option"
+            android:inputType="text"
+            android:minHeight="48dp"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+
+        <CheckBox
+            android:id="@+id/cbOption4CQ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="32dp"
+            android:text="@string/isCorrectOption"
+            tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
+
+        <LinearLayout
+            android:id="@+id/llBtnCQ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnCQ"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:maxWidth="320dp"
+                android:text="@string/create"
+                android:textColor="@android:color/white"
+                tools:ignore="TextContrastCheck" />
+
+            <Button
+                android:id="@+id/btnUQ"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:maxWidth="320dp"
+                android:text="@string/actualizar"
+                android:textColor="@android:color/white"
+                tools:ignore="TextContrastCheck" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

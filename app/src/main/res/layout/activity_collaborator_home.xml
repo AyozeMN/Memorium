@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".view.CollaboratorHomeActivity">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            tools:text="Bienvenido @Usuario"
+            tools:ignore="TextContrastCheck" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+        <Button
+            android:id="@+id/btnListPatients"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16sp"
+            android:background="@color/colorPrimary"
+            android:text="@string/ver_pacientes"
+            android:textColor="@android:color/white"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/btnListQuestions"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16sp"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/ver_preguntas"
+            android:textColor="@android:color/white"
+            tools:ignore="TextContrastCheck" />
+
+
+        <Button
+            android:id="@+id/btnListQuiz"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16sp"
+            android:background="@color/colorTertiary"
+            android:text="@string/ver_tests"
+            android:textColor="@android:color/white"
+            tools:ignore="TextContrastCheck" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLogOut"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16sp"
+        android:background="@color/colorAccent"
+        android:text="@string/logOut"
+        android:textColor="@android:color/white"
+        tools:ignore="TextContrastCheck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

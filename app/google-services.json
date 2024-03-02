@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "732316203746",
+    "project_id": "memorium-223bb",
+    "storage_bucket": "memorium-223bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732316203746:android:f8f3f79b5af4f32b17bcbb",
+        "android_client_info": {
+          "package_name": "com.ayoze.memorium"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732316203746-ubj3s552939rrkcgngt1b7dqdrohc8uk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaiIH822STAVl39-uJKfW0ukjjXL-xAX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732316203746-ubj3s552939rrkcgngt1b7dqdrohc8uk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

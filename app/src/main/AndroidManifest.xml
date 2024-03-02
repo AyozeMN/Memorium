@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/memorium_whitebg_s"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/memorium_whitebg_s"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Memorium"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".view.AuthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.DoQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.CreateQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.QuizListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.QuizResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MultipleChoiceQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.SplashScreenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.PatientHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.CollaboratorHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.PatientListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.CreateQuestionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.QuestionListActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>
