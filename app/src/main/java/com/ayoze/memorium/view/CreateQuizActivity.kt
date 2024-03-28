@@ -74,11 +74,11 @@ class CreateQuizActivity : ComponentActivity() {
                 )
                 val emptyQuiz = MultipleChoiceQuiz()
 
-                db.collection("multipleChoiceQuiz").add(emptyQuiz)
+                db.collection("quizzes").add(emptyQuiz)
                     .addOnSuccessListener { documentReference ->
                         emptyQuiz.id = documentReference.id
 
-                        db.collection("multipleChoiceQuiz").document(documentReference.id).set(
+                        db.collection("quizzes").document(documentReference.id).set(
                             hashMapOf(
                                 "id" to documentReference.id,
                                 "title" to newQuiz.title,
@@ -132,7 +132,7 @@ class CreateQuizActivity : ComponentActivity() {
     }
 
     private fun eventChangeListener() {
-        db.collection("question").addSnapshotListener(object :
+        db.collection("questions").addSnapshotListener(object :
             EventListener<QuerySnapshot> {
             override fun onEvent(
                 value: QuerySnapshot?,

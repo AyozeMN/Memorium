@@ -19,15 +19,13 @@ class AuthRepository(private val listener: OnAuthActionPerformedListener) {
             try {
                 var uId = ""
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            uId = FirebaseAuth.getInstance().currentUser?.uid.toString()
-                        }
+                    .addOnSuccessListener {
+                        uId = it.user?.uid.toString()
+                        Log.i(TAG, "UID es este -> $uId")
+                        Log.i(TAG, "Usuario registrado $uId")
+                        listener.onUserRegisteredPerformed(uId, email, rol)
+
                     }
-                withContext(Dispatchers.Main) {
-                    listener.onUserRegisteredPerformed(uId, email, rol)
-                    Log.i(TAG, "Usuario registrado $uId")
-                }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
                     listener.onError(e.message ?: "Error registrando usuario.")

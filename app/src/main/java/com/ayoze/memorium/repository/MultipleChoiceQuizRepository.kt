@@ -22,7 +22,7 @@ class MultipleChoiceQuizRepository(private val listener: OnQuizzesFetchedListene
 
             try {
                 val collectionReference =
-                    FirebaseFirestore.getInstance().collection("multipleChoiceQuiz")
+                    FirebaseFirestore.getInstance().collection("quizzes")
                 val querySnapshot = collectionReference.get().await()
 
                 for (doc in querySnapshot.documents) {
@@ -62,7 +62,7 @@ class MultipleChoiceQuizRepository(private val listener: OnQuizzesFetchedListene
             try {
                 // Obtén la referencia a la colección multipleChoiceQuiz
                 val collectionReference =
-                    FirebaseFirestore.getInstance().collection("multipleChoiceQuiz")
+                    FirebaseFirestore.getInstance().collection("quizzes")
                         .document(quizId)
                 // Consulta
                 val querySnapshot = collectionReference.get().await()

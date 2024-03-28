@@ -5,15 +5,13 @@
     android:id="@+id/ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/authLayout"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_margin="16dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,35 +23,66 @@
             android:layout_height="360dp"
             android:layout_gravity="center"
             android:contentDescription="@string/memorium_logo"
-            android:src="@drawable/memorium_whitebg_l" />
+            android:src="@drawable/memorium_whitebg_l"
+            tools:ignore="ImageContrastCheck" />
 
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints=""
+            android:autofillHints="@string/email"
             android:ems="10"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:minHeight="48dp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="8dp" />
-
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints=""
+            android:autofillHints="@string/contrase_a"
             android:ems="10"
             android:hint="@string/contrase_a"
             android:inputType="textPassword"
             android:minHeight="48dp" />
 
-        <Space
+        <LinearLayout
+            android:id="@+id/registerDataLL"
             android:layout_width="match_parent"
-            android:layout_height="8dp" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="invisible" >
+
+            <EditText
+                android:id="@+id/nameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/nombre_completo"
+                android:ems="10"
+                android:hint="@string/nombre_completo"
+                android:inputType="text"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/birthDateEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/fecha_de_nacimiento"
+                android:ems="10"
+                android:hint="@string/fecha_de_nacimiento"
+                android:inputType="date"
+                android:minHeight="48dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/foto_de_perfil"
+                android:src="@android:drawable/btn_star"
+                tools:ignore="ImageContrastCheck" />
+
+        </LinearLayout>
 
         <RadioGroup
             android:id="@+id/rolRadioGrp"
@@ -77,13 +106,9 @@
                 android:text="@string/paciente" />
         </RadioGroup>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="8dp" />
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
@@ -97,10 +122,6 @@
                 android:textColor="@android:color/white"
                 tools:ignore="TextContrastCheck" />
 
-            <Space
-                android:layout_width="8dp"
-                android:layout_height="wrap_content" />
-
             <Button
                 android:id="@+id/loginBtn"
                 style="?android:attr/buttonBarButtonStyle"
@@ -110,6 +131,7 @@
                 android:background="@color/colorPrimaryDark"
                 android:text="@string/acceder"
                 android:textColor="@android:color/white" />
+
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

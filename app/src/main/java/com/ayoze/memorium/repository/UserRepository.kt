@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
 class UserRepository(private val listener: OnUserActionPerformedListener) {
 
     interface OnUserActionPerformedListener {
-        fun onUserCreate(uId: String, email: String, rol: Roles)
+        fun onUserCreated(uId: String, email: String, rol: Roles)
         fun onRolFetched(rol: Roles)
         fun onError(errorMessage: String)
     }
@@ -20,11 +20,11 @@ class UserRepository(private val listener: OnUserActionPerformedListener) {
             try {
                 FirebaseFirestore.getInstance().collection("users").document(uId).set(
                     hashMapOf(
-                        "email" to email, "rol" to rol
+                        "email" to email, "rol" to rol.name
                     )
                 )
                 withContext(Dispatchers.Main) {
-                    listener.onUserCreate(uId, email, rol)
+                    listener.onUserCreated(uId, email, rol)
                     Log.i(TAG, "Usuario creado en base de datos $uId")
                 }
             } catch (e: Exception) {

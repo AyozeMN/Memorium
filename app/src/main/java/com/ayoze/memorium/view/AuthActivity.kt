@@ -49,16 +49,11 @@ class AuthActivity : ComponentActivity() {
         uId = prefs.getString("uId", null)
         email = prefs.getString("email", null)
         rol = prefs.getString("rol", null)
-        Log.i(TAG, "<<< Rol obtenido de la sesión ${rol.isNullOrBlank()} -> $rol")
-        Log.i(TAG, "<<< email obtenido de la sesión ${email.isNullOrBlank()} -> $email")
-        Log.i(TAG, "<<< uId obtenido de la sesión ${uId.isNullOrBlank()} -> $uId")
         if (!uId.isNullOrBlank() && !rol.isNullOrBlank()) {
             binding.authLayout.visibility = View.INVISIBLE
             if (rol == Roles.COLABORADOR.name && !email.isNullOrBlank()) {
-                Log.i(TAG, ">>> Hacia COLABORADOR")
                 showCollaboratorHome(uId!!, email!!)
             } else if (rol == Roles.PACIENTE.name && !email.isNullOrBlank()) {
-                Log.i(TAG, ">>> Hacia PACIENTE")
                 showPatientHome(uId!!, email!!)
             }
         }
@@ -67,7 +62,6 @@ class AuthActivity : ComponentActivity() {
     private val authRepository =
         AuthRepository(object : AuthRepository.OnAuthActionPerformedListener {
             override fun onUserAuthenticationPerformed(uId: String, email: String) {
-                Log.i(TAG, "6.- Se inicia sesion")
                 lifecycleScope.launch {
                     this@AuthActivity.uId = uId
                     this@AuthActivity.email = email
@@ -76,15 +70,18 @@ class AuthActivity : ComponentActivity() {
             }
 
             override fun onUserRegisteredPerformed(uId: String, email: String, rol: Roles) {
-                this@AuthActivity.uId = uId
-                this@AuthActivity.email = email
-                this@AuthActivity.rol = rol.name
+                lifecycleScope.async {
+                    this@AuthActivity.uId = uId
+                    this@AuthActivity.email = email
+                    this@AuthActivity.rol = rol.name
+                    userRepository.createUser(uId, email, rol)
+                    redirect(this@AuthActivity.rol!!)
+                }
+
             }
 
             override fun onError(errorMessage: String) {
-                // Log en caso de fallo al registrarse
                 Log.w(TAG, errorMessage)
-                // Mostrar por pantalla retroalimentación al usuario
                 Toast.makeText(
                     baseContext,
                     "Registro fallido",
@@ -96,13 +93,15 @@ class AuthActivity : ComponentActivity() {
 
     private val userRepository =
         UserRepository(object : UserRepository.OnUserActionPerformedListener {
-            override fun onUserCreate(uId: String, email: String, rol: Roles) {
-                Log.i(TAG, "Usuario creado en base de datos $uId")
+            override fun onUserCreated(uId: String, email: String, rol: Roles) {
+                Log.i(
+                    TAG,
+                    ">> Datos obtenidos fin crear user en bbdd uId:$uId, mail:$email, rol:${rol.name}"
+                )
             }
 
             override fun onRolFetched(rol: Roles) {
                 this@AuthActivity.rol = rol.name
-                Log.i(TAG, "11.- Rol obtenido ${rol.name}")
                 redirect(this@AuthActivity.rol!!)
             }
 
@@ -122,8 +121,9 @@ class AuthActivity : ComponentActivity() {
 
         // Registro
         binding.signUpBtn.setOnClickListener {
-            //La primera vez que se pulse el botón muestro el radio button del rol
+            //La primera vez que se pulse el botón muestro el radio button del rol y los campos de nuevo user
             binding.rolRadioGrp.visibility = VISIBLE
+            binding.registerDataLL.visibility = VISIBLE
 
             // Comprobación datos registro
             if (helper.checkTextFields(
@@ -134,17 +134,16 @@ class AuthActivity : ComponentActivity() {
             ) {
                 val emailText = binding.emailEditText.text.toString()
                 val passwordText = binding.passwordEditText.text.toString()
+                val nameText = binding.nameEditText.text.toString()
+                val birthDateText = binding.birthDateEditText.text.toString()
                 val rolText = Helper().getRolOnRegister(binding.rolRadioGrp)
+                Log.i(
+                    TAG,
+                    "Datos registro mail:$emailText, rol:$rolText, name:$nameText, bdate:$birthDateText"
+                )
+
                 lifecycleScope.launch {
                     authRepository.registerUser(emailText, passwordText, rolText)
-                    Log.i(TAG, "Usuario registrado en firebase $email")
-
-                    lifecycleScope.async {
-                        userRepository.createUser(emailText, passwordText, rolText)
-                    }.await()
-                    Log.i(TAG, "Usuario creado en bbdd $uId")
-
-                    rol?.let { it1 -> redirect(it1) }
                 }
             } else {
                 if (helper.checkRGButtons(binding.rolRadioGrp)) {
@@ -159,7 +158,6 @@ class AuthActivity : ComponentActivity() {
         binding.loginBtn.setOnClickListener {
             // Comprobación datos login
             if (helper.checkTextFields(arrayOf(binding.emailEditText, binding.passwordEditText))) {
-                Log.i(TAG, "1.- Usuario autenticado $uId")
                 val emailText = binding.emailEditText.text.toString()
                 val passwordText = binding.passwordEditText.text.toString()
                 lifecycleScope.launch {
@@ -170,7 +168,6 @@ class AuthActivity : ComponentActivity() {
     }
 
     private fun redirect(rol: String) {
-        Log.i(TAG, "12.- REDIRECT... $rol")
         if (rol == Roles.COLABORADOR.name) {
             uId?.let { email?.let { it1 -> showCollaboratorHome(it, it1) } }
         } else if (rol == Roles.PACIENTE.name) {

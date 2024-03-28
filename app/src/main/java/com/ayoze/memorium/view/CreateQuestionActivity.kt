@@ -55,11 +55,11 @@ class CreateQuestionActivity : ComponentActivity() {
             if (textFieldsFilled && checkFieldsFilled) {
                 val newQuestion = MultipleChoiceQuestion()
 
-                db.collection("question").add(newQuestion)
+                db.collection("questions").add(newQuestion)
                     .addOnSuccessListener { documentReference ->
                         newQuestion.id = documentReference.id
 
-                        db.collection("question").document(documentReference.id).set(
+                        db.collection("questions").document(documentReference.id).set(
                             hashMapOf(
                                 "id" to documentReference.id,
                                 "statement" to binding.etStatementCQ.text.toString(),

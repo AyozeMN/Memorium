@@ -43,4 +43,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="difficulty">Dificultad</string>
+    <string name="nombre_completo">Nombre completo</string>
+    <string name="fecha_de_nacimiento">Fecha de Nacimiento</string>
+    <string name="foto_de_perfil">Foto de Perfil</string>
+    <string name="formulario_crear_test">Formulario crear test</string>
+    <string name="dificultad_f_cil_medio_dif_cil">Dificultad {Fácil, Medio, Difícil}</string>
 </resources>

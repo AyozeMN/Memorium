@@ -22,8 +22,8 @@ class MultipleChoiceQuestionRepository(private val listener: OnQuestionsFetchedL
             val questions = mutableListOf<MultipleChoiceQuestion>()
 
             try {
-                // Obtén la referencia a la colección "question"
-                val collectionReference = FirebaseFirestore.getInstance().collection("question")
+                // Obtén la referencia a la colección "questions"
+                val collectionReference = FirebaseFirestore.getInstance().collection("questions")
                 // Realiza la consulta de manera asíncrona y Bloquea el hilo actual hasta que la tarea se complete
                 val querySnapshot = collectionReference.get().await()
 
@@ -63,7 +63,7 @@ class MultipleChoiceQuestionRepository(private val listener: OnQuestionsFetchedL
     suspend fun fetchQuestionsFromQuiz(quiz: MultipleChoiceQuiz) {
         withContext(Dispatchers.IO) {
             val questions = mutableListOf<MultipleChoiceQuestion>()
-            val collectionReference = FirebaseFirestore.getInstance().collection("question")
+            val collectionReference = FirebaseFirestore.getInstance().collection("questions")
             try {
                 quiz.questions?.forEach {
                     val doc = collectionReference.document(it.id).get().await()
